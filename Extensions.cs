@@ -123,4 +123,23 @@ public static class VExtensions
 
     return false;
   }
+  public static void Destroy(this Entity entity, bool immediate = false)
+  {
+    if (!entity.Exists()) return;
+
+    if (immediate)
+    {
+      EntityManager.DestroyEntity(entity);
+    }
+    else
+    {
+      DestroyUtility.Destroy(EntityManager, entity);
+    }
+  }
+  public static PrefabGUID GetPrefabGuid(this Entity entity)
+  {
+    if (entity.TryGetComponent(out PrefabGUID prefabGuid)) return prefabGuid;
+
+    return PrefabGUID.Empty;
+  }
 }

@@ -83,7 +83,7 @@ public static class BuffService
       }
     }
 
-    var prefabGuid = buffEntity.Read<PrefabGUID>();
+    // var prefabGuid = buffEntity.Read<PrefabGUID>();
     // Core.Log.LogInfo($"Applying game buff: {prefabGuid}");
 
     if (!buffEntity.TryGetBuffer<ModifyUnitStatBuff_DOTS>(out var buffer))
